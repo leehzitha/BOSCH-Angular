@@ -1,0 +1,9 @@
+<app-input
+  (onChange)="texto = $event"
+/>
+
+<app-button
+  (onClick)="clicado()"
+  [label]="this.count.toString() "
+  [texto]="texto"/>
+  <p>{{ texto }}</p>

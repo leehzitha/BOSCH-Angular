@@ -1,0 +1,9 @@
+button {
+    background-color: brown;
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: large;
+    border-radius: 9px;
+    font-family: monospace
+}
