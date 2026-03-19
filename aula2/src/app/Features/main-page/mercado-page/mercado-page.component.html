@@ -1,0 +1,9 @@
+<div class="main">
+    <p class="title">Itens de Mercado</p>
+    <div class="_mercados">
+        <app-mercado-card
+            *ngFor="let market of markets; track: $index"
+            [market] = "market">
+        </app-mercado-card>
+    </div>
+</div>

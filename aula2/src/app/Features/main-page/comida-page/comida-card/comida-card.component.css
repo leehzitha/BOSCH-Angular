@@ -1,0 +1,41 @@
+
+._food {
+    background-color: rgb(114, 27, 27);
+    margin-top: 1rem;
+    height: 15rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+    border-radius: 1.5rem;
+    color: white;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+    overflow: hidden;
+}
+
+.title {
+    font-size: x-large;
+    font-weight: 700;
+    font-family: "Montserrat";
+
+}
+
+.price {
+    margin-top: .5rem;
+    font-size: large;
+    font-family: "Montserrat";
+    font-weight: 800
+}
+
+.id {
+   font-weight: 600;
+    font-family: "Montserrat";
+}
+
+.content {
+    font-size: medium;
+}

@@ -1,0 +1,22 @@
+._foods {
+    display: grid;
+    flex-direction: row;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem 3rem
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.title {
+    font-size: xx-large;
+    font-family: "Montserrat";
+    font-weight: 800;
+    margin-top: 2rem;
+}

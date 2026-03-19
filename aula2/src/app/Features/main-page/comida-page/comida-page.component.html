@@ -1,0 +1,13 @@
+<div class="main">
+    <p class="title">Comida</p>
+    <div class="_foods">
+        <app-comida-card 
+            *ngFor="let foodi of foods; track: $index"
+            [food] = "foodi">
+        </app-comida-card>
+        <!-- <div class="_food" *ngFor="let food of foods; track: $index"> -->
+            
+        <!-- </div> -->
+    </div>
+
+</div>
