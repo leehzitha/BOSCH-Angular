@@ -1,0 +1,10 @@
+<p>modal works!</p>
+
+<div (click)="toggleClose()" class="modal-bg"> </div>
+
+<div class="modal-container">
+    <ng-content></ng-content>
+    <div class="modal-footer" *ngIf="Confirmation">
+        <ng-content select=".button"></ng-content>
+    </div>
+</div> 

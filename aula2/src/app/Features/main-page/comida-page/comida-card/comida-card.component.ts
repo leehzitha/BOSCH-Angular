@@ -17,6 +17,7 @@ export class ComidaCardComponent {
   @Output()
   onClick : EventEmitter<IFood> = new EventEmitter();
 
+
   clicked = () => {
     this.onClick.emit(this.food);
   }

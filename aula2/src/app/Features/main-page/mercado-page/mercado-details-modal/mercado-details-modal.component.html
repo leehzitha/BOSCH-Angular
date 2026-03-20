@@ -1,0 +1,11 @@
+<div (click)="closeModal()" class="modal-bg">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+        <div class="image">
+            <img src="{{market.imageURL}}" alt="">
+        </div>
+        <p class="title">{{market.name}}</p>
+        <p class="content">{{market.description}}</p>
+        <p class="price">R$ {{market.price}}</p>
+        <button>COMPRAR</button>
+    </div>
+</div>

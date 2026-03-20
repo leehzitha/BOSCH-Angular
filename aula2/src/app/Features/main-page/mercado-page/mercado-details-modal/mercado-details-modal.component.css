@@ -1,6 +1,6 @@
 .modal-bg {
     position: fixed;
-    display: flex-grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: calc(100% - 5.5rem);

@@ -1,8 +1,5 @@
 .modal-bg {
-    position: fixed;
-    display: flex-grid;
-    justify-content: center;
-    align-items: center;
+    position: fixed;;
     width: calc(100% - 5.5rem);
     height: calc(100% - 5.5rem);
     top: 5.5rem;
@@ -10,7 +7,7 @@
     backdrop-filter: blur(10px);
 }
 
-.modal-container {
+.modal-container  {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,42 +16,44 @@
     width: 65rem;
     height: 45rem;
     gap: 2rem;
+    top: 10rem;
+    left: 30rem;
     border-radius: 1rem;
     background-color: white;
     box-shadow: 10px 10px 100px 100px rgba(0, 0, 0, 0.2) ;
     z-index: 1000;
 }
 
-.image {
+::ng-deep .modal-container .image {
     width: 93%;
     height: 22rem;
 }
 
-.image img {
+::ng-deep .modal-container .image img {
     width: 100%;
     height: 100%;
     border-radius: 2rem;
     object-fit: cover;
 }
 
-.title {
+::ng-deep .modal-container .title {
     font-size: xx-large;
     font-family: "Montserrat";
     font-weight: 800;
 }
 
-.content {
+::ng-deep .modal-container .content {
     font-size: 18px;
     font-family: monospace;
 }
 
-.price {
+::ng-deep .modal-container .price {
     font-size: xx-large;
     font-family: "Montserrat";
     font-weight: 800;
 }
 
-button {
+::ng-deep .modal-footer button {
     padding: 1rem 10rem;
     border-radius: 1rem;
     background-color: rgb(114, 27, 27);
@@ -62,3 +61,6 @@ button {
     font-family: monospace;
     font-size: larger;
 }
+
+
+

@@ -1,9 +1,11 @@
 ._foods {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     gap: 1rem;
+    justify-content: center;
     grid-template-columns: repeat(4, 1fr);
-    padding: 2rem 3rem
+    /* padding: 2rem 3rem */
 }
 
 .main {

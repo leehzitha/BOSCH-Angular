@@ -7,10 +7,22 @@
             (onClick)="clicked($event)">
         </app-comida-card>
     </div>
-    <app-comida-details-modal 
+    <!-- <app-comida-details-modal 
         *ngIf = "abrido == true"
         (onClick)="close()"
         [food] = "this.selectedFood">
-    </app-comida-details-modal>
+    </app-comida-details-modal> -->
    <p>{{abrido}}</p>
+
+   <app-modal
+        *ngIf = "abrido == true"
+        (onClose)="close()">
+        <div class="image">
+            <img src="{{selectedFood.imageURL}}" alt="">
+        </div>
+        <p class="title">{{selectedFood.name}}</p>
+        <p class="content">{{selectedFood.description}}</p>
+        <p class="price">R$ {{selectedFood.price}}</p>
+        <button class="button">COMPRAR</button>
+   </app-modal>
 </div>
