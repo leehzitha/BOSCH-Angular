@@ -1,0 +1,42 @@
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem;
+    background-color: rgb(4, 150, 218);
+    height: 5.5rem;
+    justify-content:space-between;
+   
+
+}
+
+.title {
+    font-family: "Montserrat";
+    font-size: xx-large;
+    color: white;
+    font-weight: 900
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    gap: .3rem
+}
+
+img {
+    height: 2rem;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: "Montserrat";
+    font-size: medium;
+    font-weight: 600
+}
