@@ -12,6 +12,7 @@ import { MercadoPageComponent } from './Features/main-page/mercado-page/mercado-
 import { ComidaPageComponent } from './Features/main-page/comida-page/comida-page.component';
 import { ComidaCardComponent } from './Features/main-page/comida-page/comida-card/comida-card.component';
 import { MercadoCardComponent } from './Features/main-page/mercado-page/mercado-card/mercado-card.component';
+import { ComidaDetailsModalComponent } from './Features/main-page/comida-page/comida-details-modal/comida-details-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MercadoCardComponent } from './Features/main-page/mercado-page/mercado-
     MercadoPageComponent,
     ComidaPageComponent,
     ComidaCardComponent,
-    MercadoCardComponent
+    MercadoCardComponent,
+    ComidaDetailsModalComponent
   ],
   imports: [
     BrowserModule,

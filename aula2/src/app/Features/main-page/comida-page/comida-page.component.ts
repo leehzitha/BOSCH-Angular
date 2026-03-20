@@ -8,10 +8,25 @@ import MockFood, { IFood } from './foods.mock';
 })
 export class ComidaPageComponent {
   protected foods: IFood[] = []
+  protected abrido = false;
+  protected selectedFood! : IFood;
+
 
   constructor () {
     this.foods = MockFood;
   }
+
+  clicked = (food : IFood) => {
+    this.abrido = !this.abrido;
+    this.selectedFood = food
+  }
+
+  close = () => {
+    this.abrido = !this.abrido
+  }
+
+
+
 
   
 }

@@ -1,9 +1,11 @@
-
-    <div (click)="clicked()" class="_food">
-        <div class="imagem">
+<div (click)="closeModal()" class="modal-bg">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+        <div class="image">
             <img src="{{food.imageURL}}" alt="">
         </div>
         <p class="title">{{food.name}}</p>
         <p class="content">{{food.description}}</p>
         <p class="price">R$ {{food.price}}</p>
+        <button>COMPRAR</button>
     </div>
+</div>

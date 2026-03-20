@@ -1,13 +1,16 @@
 <div class="main">
-    <p class="title">Comida</p>
+    <p class="title">Pratos Prontos</p>
     <div class="_foods">
         <app-comida-card 
             *ngFor="let foodi of foods; track: $index"
-            [food] = "foodi">
+            [food] = "foodi"
+            (onClick)="clicked($event)">
         </app-comida-card>
-        <!-- <div class="_food" *ngFor="let food of foods; track: $index"> -->
-            
-        <!-- </div> -->
     </div>
-
+    <app-comida-details-modal 
+        *ngIf = "abrido == true"
+        (onClick)="close()"
+        [food] = "this.selectedFood">
+    </app-comida-details-modal>
+   <p>{{abrido}}</p>
 </div>
