@@ -1,1 +1,17 @@
 
+<div class="form">
+        <p class="title">Sign Up</p>
+        <div class="inputs">
+            <p class="subtitle">Username</p>
+            <input type="text" class="input" placeholder="Username" [(ngModel)]="user.username">
+            <p class="subtitle">CPF</p>
+            <ng-content></ng-content>
+            <input type="text" class="input" placeholder="CPF" [(ngModel)]="user.cpf">
+            <p class="subtitle">Password</p>
+            <input type="text" placeholder="Password" class="input" [(ngModel)]="user.password">
+            
+            <app-button (onClick)="submit()">
+                <p>Register</p>
+            </app-button>
+        </div>
+</div>

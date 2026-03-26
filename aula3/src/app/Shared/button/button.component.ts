@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
+  @Output()
+  onClick : EventEmitter<void> = new EventEmitter();
 
+  clicado = () => {
+    this.onClick.emit();
+  }
+  
 }
