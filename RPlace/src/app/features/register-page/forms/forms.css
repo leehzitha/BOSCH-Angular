@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 5.5rem);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    background-color: rgb(4, 150, 218);
+    border-radius: 1.5rem;
+    gap: 2.5rem
+}
+
+.title {
+    font-size: x-large;
+    font-family: "Montserrat";
+    font-weight: 800;
+    color: white
+}
+
+.input {
+    padding: .3rem 1rem;
+    font-family: "Montserrat";
+    border-radius: .5rem;
+    border: 0;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: white;
+    font-family: "Montserrat";
+    text-align: left;
+    font-weight: 600;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem
+}
+
+::ng-deep .response {
+    color: red;
+    text-align: left;
+    font-family: "Montserrat";
+    font-weight: bold
+}
