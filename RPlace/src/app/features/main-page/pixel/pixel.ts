@@ -13,11 +13,12 @@
     selected = false;
 
     @Output()
-    onClick : EventEmitter<Boolean> = new EventEmitter();
+    onClick : EventEmitter<boolean> = new EventEmitter();
+
+    @Output()
 
     changeColor() {
       this.onClick.emit(true);
-      this.backgroundColor = this.backgroundColor === 'white' ? 'black' : 'white'
     } 
 
 

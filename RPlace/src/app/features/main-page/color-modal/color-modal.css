@@ -1,0 +1,35 @@
+.ball {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 20px;
+}
+
+.selectColor {
+    width: 60%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 15px rgb(177, 176, 176);
+    border-radius: 2.3rem;
+    height: 5rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    position: fixed;
+    bottom: 2rem;  
+    left: 50%;
+    bottom: 2rem;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+    pointer-events: none;
+    z-index: 100;
+
+
+}
+
+.selectColor.open {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
+}
