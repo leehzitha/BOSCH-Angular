@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Pixel } from './pixel/pixel';
 import { CommonModule } from '@angular/common';
 
@@ -15,5 +15,5 @@ export class MainPage {
   colorSelector = false;
 
   @Input()
-  selected : boolean
+  selected! : boolean
 }
