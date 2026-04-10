@@ -1,4 +1,4 @@
-  import { Component, Output } from '@angular/core';
+  import { Component, Input, Output } from '@angular/core';
   import { EventEmitter } from '@angular/core';
 
   @Component({
@@ -9,16 +9,20 @@
     styleUrl: './pixel.css',
   })
   export class Pixel {
-    backgroundColor = 'white';
     selected = false;
 
+    @Input() id!: number;
+
+    @Input()
+    backgroundColor: string = 'white';
+    
     @Output()
-    onClick : EventEmitter<Boolean> = new EventEmitter();
+    onClick = new EventEmitter<number>();
 
     changeColor() {
-      this.onClick.emit(true);
-      this.backgroundColor = this.backgroundColor === 'white' ? 'black' : 'white'
-    } 
+      this.onClick.emit(this.id);
+    }
+
 
 
 

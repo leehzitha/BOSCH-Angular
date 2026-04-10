@@ -1,6 +1,22 @@
-<div class="container">
-    <div class="row" *ngFor="let row of rows">
-        <app-pixel *ngFor="let pixel of pixels"></app-pixel>
+<app-header></app-header>
+    <div class="main-container">
+        <div class="container">
+            @for (pixel of pixels; track $index; let i = $index) {
+                <!-- <div class="row"> -->
+                <!-- @for (pixel of pixels; track $index; let j = $index){ -->
+                  <app-pixel
+                    [id]="i"
+                    [backgroundColor]="pixel.color"
+                    (onClick)="handlePixelClick($event)"
+                    ></app-pixel>
+                <!-- } -->
+                <!-- </div> -->
+            }
+        </div>
+        <app-color-modal [open]="open" (onClick)="handleColorChange($event)"></app-color-modal>
+       
     </div>
-    
-</div>
+
+
+
+

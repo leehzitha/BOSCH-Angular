@@ -1,1 +1,7 @@
-<p>color-modal works!</p>
+<div class="selectColor" [class.open]="open">
+  <div 
+    *ngFor="let color of (open ? colors : [])"
+    class="ball"
+    [style.backgroundColor]="color"
+    (click)="changeColor(color)"></div>
+</div>
