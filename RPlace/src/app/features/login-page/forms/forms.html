@@ -1,15 +1,19 @@
-<!-- <div class="container"> -->
-    <!-- <div class="form"> -->
+<div class="container">
+    <div class="form">
+        <p class="title">{{title}}</p>
         <form action="get" [formGroup]="loginForm"(ngSubmit)="login()" >
             <label for="">Username</label>
+            <br>
             <br>
             <input type="text" formControlName="username">
             <br>
             <label for="">Password</label>
             <br>
+            <br>
             <input type="text" formControlName="password">
             <br>
-            <button type="submit">Login</button>
+            <app-button type="submit"><p>{{button}}</p></app-button>
+            <!-- <button type="submit">Login</button> -->
         </form> 
-    <!-- </div> -->
-<!-- </div> -->
+    </div>
+</div>

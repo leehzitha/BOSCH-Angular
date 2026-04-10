@@ -4,6 +4,7 @@ import { Button } from '../../../shared/button/button';
 import { FormControl, FormGroup, FormsModule, NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthApi } from '../../../domain/auth.api';
 import { LoginDto } from '../../../domain/IUser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forms',
@@ -32,6 +33,9 @@ export class Forms {
   @Input()
   title = "";
 
+  @Input()
+  button = "";
+
   // submit = () => {
   //   if (this.isValidName(this.user.username)) {
   //     this.onClick.emit(this.user);
@@ -45,7 +49,7 @@ export class Forms {
   //   console.log(this.users);
   // }
 
-  constructor(private api: AuthApi){
+  constructor(private api: AuthApi, private router: Router){
     
   }
 
@@ -75,7 +79,13 @@ export class Forms {
     }
 
     this.api.login(data).subscribe(
-      res => console.log(res)
+      res => {
+        console.log(res)
+        sessionStorage.setItem("token", res)
+        alert("It works!")
+        this.loginForm.reset();
+        this.router.navigate(['/paint'])
+      }
     )
   }
 

@@ -8,6 +8,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { required } from '@angular/forms/signals';
 import { LoginDto } from '../../domain/IUser';
 import { EventEmitter } from '@angular/core';
+import { IPixel } from '../../domain/IPixel';
+import { PixelApi } from '../../domain/pixel.api';
 
 @Component({
   selector: 'app-main-page',
@@ -17,15 +19,50 @@ import { EventEmitter } from '@angular/core';
   styleUrl: './main-page.css',
 })
 export class MainPage {
-  rows = Array(120);
-  colorSelector = false;
 
-  pixels = Array.from({ length: 14400 }, () => ({ color: 'white' }));
-  
+  constructor (
+    private api : PixelApi
+  ){}
+  // pixels = Array.from({ length: 14400 }, () => ({ color: 'white' }));
+  protected pixels: IPixel[][] = []
+
+  ngOnInit(){
+    let lines = [];
+
+    for (let y = 0; y < 100; y ++) {
+      let row : IPixel[] = [];
+      for (let x = 0; x < 100; x ++) {
+        row.push({
+          Color: 'white',
+          X: x,
+          Y: y
+        })
+      }
+      lines.push(row);
+    }
+    this.pixels = lines;
+    this.loadData();
+  }
+
+  loadData() {
+    this.api.getPixels().subscribe(
+      res => {
+        for (let y = 0; y < 100; y ++) {
+          for (let x = 0; x < 100; x ++) {
+            let exists : res.find(p => p.X == x && p.Y == y);
+
+            row.push({
+              color: 
+            })
+          }
+        }
+      }
+    )
+  }
   selectedColor = 'white';
   pixelIndex = 0;
   open = false;
-
+  
   handleColorChange(color : string){
     this.selectedColor = color;
   }

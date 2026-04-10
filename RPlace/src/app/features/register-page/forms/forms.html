@@ -1,15 +1,19 @@
 <div class="container">
     <div class="form">
-            <p class="title">Sign Up</p>
-            <div class="inputs">
-                <p class="subtitle">Username</p>
-                <input type="text" class="input" placeholder="Username" [(ngModel)]="user.username">
-                <p class="subtitle">Password</p>
-                <input type="text" placeholder="Password" class="input" [(ngModel)]="user.password">
-                
-                <app-button (onClick)="submit()">
-                    <p>Register</p>
-                </app-button>
-            </div>
+        <p class="title">{{title}}</p>
+        <form action="post" [formGroup]="SubscribeForm"(ngSubmit)="subscribe()" >
+            <label for="">Username</label>
+            <br>
+            <br>
+            <input type="text" formControlName="username">
+            <br>
+            <label for="">Password</label>
+            <br>
+            <br>
+            <input type="text" formControlName="password">
+            <br>
+            <app-button type="submit"><p>{{button}}</p></app-button>
+            <!-- <button type="submit">Login</button> -->
+        </form> 
     </div>
 </div>

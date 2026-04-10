@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class AuthApi extends Api{
 
   // o retorno do endpoint é um token, uma string 
-  login = (data: LoginDto) : Observable<Object> => {
+  login = (data: LoginDto) : Observable<string> => {
     return this.client.post<string>(`${this.URL}/auth/login`, data).pipe();
   }
 

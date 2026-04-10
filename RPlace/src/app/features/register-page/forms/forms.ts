@@ -1,34 +1,28 @@
-// import { Component, EventEmitter, Input, Output } from '@angular/core';
-// import MockUser, { IUser } from './user.mock';
-// import { Button } from '../../../shared/button/button';
-// import { FormsModule, NgModel } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import MockUser, { IUser } from './user.mock';
+import { Button } from '../../../shared/button/button';
+import { FormControl, FormGroup, FormsModule, NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthApi } from '../../../domain/auth.api';
+import { LoginDto } from '../../../domain/IUser';
 
-// @Component({
-//   selector: 'app-forms',
-//   standalone: true,
-//   imports: [Button, FormsModule],
-//   templateUrl: './forms.html',
-//   styleUrl: './forms.css',
-// })
+@Component({
+  selector: 'app-forms2',
+  standalone: true,
+  imports: [Button, FormsModule, ReactiveFormsModule],
+  templateUrl: './forms.html',
+  styleUrl: './forms.css',
+})
 
-// export class Forms {
+export class Forms2 {
 
-//   protected users: IUser[] = []
+  @Output()
+  onClick : EventEmitter<IUser | false> = new EventEmitter();
 
-//   constructor () {
-//     this.users = MockUser;
-//   }
+  @Input()
+  title = "";
 
-//   user: IUser = {
-//     username: "",
-//     password: ''
-//   }
-
-//   @Output()
-//   onClick : EventEmitter<IUser | false> = new EventEmitter();
-
-//   @Input()
-//   title = "";
+  @Input()
+  button = "";
 
 //   submit = () => {
 //     if (this.isValidName(this.user.username)) {
@@ -43,16 +37,63 @@
 //     console.log(this.users);
 //   }
 
-//     isValidName(value : string) {
-//       if (value.trim() === "")
-//         return false;
+  constructor(private api: AuthApi){
+    
+  }
 
-//       return true;
+  SubscribeForm : FormGroup = new FormGroup({
+    username : new FormControl('', [Validators.required]),
+    password : new FormControl('', [Validators.required])
+  })
+
+  get Username() {
+    return this.SubscribeForm.get("username");
+  }
+
+  get Password() {
+    return this.SubscribeForm.get("password");
+  }
+
+//   login = () => {
+//     if (!this.loginForm.valid)
+//     {
+//       alert("Invalid fields");
+//       return;
+//     }
+
+//     const data : LoginDto = {
+//       password : this.Password?.value,
+//       username : this.Username?.value
+//     }
+
+//     this.api.login(data).subscribe(
+//       res => {
+//         console.log(res)
+//         sessionStorage.setItem("token", res)
+//         alert("It works!")
+//         this.loginForm.reset();
+//       }
+//     )
 //   }
 
-//   isValidPassword(value: string){
-//     if (value.length < 6)
-//       return false;
-//     return true;
-//   }
-// }
+  subscribe = () => {
+    if (!this.SubscribeForm.valid)
+    {
+      alert("Invalid fields");
+      return;
+    }
+
+    const data: LoginDto = {
+        password : this.Password?.value,
+        username :this.Username?.value
+    }
+    this.api.subscribe(data).subscribe(
+        res => {
+            alert("Signed Up!");
+            this.SubscribeForm.reset;
+        }
+    )
+
+
+  }
+}
