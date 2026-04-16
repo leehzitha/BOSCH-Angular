@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Api } from "./api";
-import { IPixel } from "./IPixel";
+import { IPixel } from "./interfaces/IPixel";
 import { Observable } from "rxjs";
 
 @Injectable({

@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, Output } from '@angular/core';
 import { Pixel } from './pixel/pixel';
 import { CommonModule } from '@angular/common';
 import { Header } from '../../shared/header/header';
@@ -6,10 +6,12 @@ import { ColorModal } from './color-modal/color-modal';
 import { AuthApi } from '../../domain/auth.api';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { required } from '@angular/forms/signals';
-import { LoginDto } from '../../domain/IUser';
+import { LoginDto } from '../../domain/interfaces/IUser';
 import { EventEmitter } from '@angular/core';
-import { IPixel } from '../../domain/IPixel';
+import { IPixel } from '../../domain/interfaces/IPixel';
 import { PixelApi } from '../../domain/pixel.api';
+import { ActivatedRoute } from '@angular/router';
+import { RoomApi } from '../../domain/room.api';
 
 @Component({
   selector: 'app-main-page',
@@ -21,8 +23,14 @@ import { PixelApi } from '../../domain/pixel.api';
 export class MainPage {
 
   constructor (
-    private api : PixelApi
+    private cdr : ChangeDetectorRef,
+    private api : PixelApi,
+    private roomApi : RoomApi,
+    private router: ActivatedRoute
   ){}
+
+  private idRoom : string = ""
+
   // pixels = Array.from({ length: 14400 }, () => ({ color: 'white' }));
   protected pixels: IPixel[][] = []
 
@@ -47,18 +55,21 @@ export class MainPage {
   loadData() {
     this.api.getPixels().subscribe(
       res => {
-        for (let y = 0; y < 100; y ++) {
-          for (let x = 0; x < 100; x ++) {
-            let exists : res.find(p => p.X == x && p.Y == y);
-
-            row.push({
-              color: 
-            })
-          }
-        }
-      }
+        this.pixels = this.pixels.map((row, x) => {
+          return row.map((pixel, y) => {
+            const exists = res.find(p => p.X == x && p.Y == y);
+            return exists ? exists : pixel;
+          })
+        })
+        this.cdr.detectChanges();
+       }
     )
   }
+
+  updatePixel(pixel : IPixel) {
+    this.pixels[pixel.Y][pixel.X] = pixel
+  }
+
   selectedColor = 'white';
   pixelIndex = 0;
   open = false;
@@ -68,10 +79,10 @@ export class MainPage {
   }
 
   handlePixelClick(index: number){
-    this.pixels[index].color = this.selectedColor;  
-    console.log(this.open);
-    this.open = true;
-    console.log(this.open)
+    // this.pixels[index].color = this.selectedColor;  
+    // console.log(this.open);
+    // this.open = true;
+    // console.log(this.open)
   }
   }
 

@@ -1,5 +1,6 @@
   import { Component, Input, Output } from '@angular/core';
   import { EventEmitter } from '@angular/core';
+import { IPixel } from '../../../domain/interfaces/IPixel';
 
   @Component({
     selector: 'app-pixel',
@@ -11,16 +12,19 @@
   export class Pixel {
     selected = false;
 
-    @Input() id!: number;
+    // @Input() id!: number;
 
     @Input()
     backgroundColor: string = 'white';
     
     @Output()
-    onClick = new EventEmitter<number>();
+    onClick = new EventEmitter<IPixel>();
+
+    @Input()
+    data! : IPixel;
 
     changeColor() {
-      this.onClick.emit(this.id);
+      this.onClick.emit(this.data);
     }
 
 

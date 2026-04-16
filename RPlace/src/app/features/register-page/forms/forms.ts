@@ -3,7 +3,7 @@ import MockUser, { IUser } from './user.mock';
 import { Button } from '../../../shared/button/button';
 import { FormControl, FormGroup, FormsModule, NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthApi } from '../../../domain/auth.api';
-import { LoginDto } from '../../../domain/IUser';
+import { LoginDto } from '../../../domain/interfaces/IUser';
 
 @Component({
   selector: 'app-forms2',

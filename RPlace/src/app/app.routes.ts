@@ -6,7 +6,10 @@ import { WelcomePage } from './features/welcome-page/welcome-page';
 import { authGuard } from './domain/auth-guard';
 
 export const routes: Routes = [
-    {path: "", component:WelcomePage, canMatch: []},
+    {path: "", component:WelcomePage, canMatch: [], children : [
+        // {path: ":id", component:especi}
+    ]
+    },
     {path: "login", component:LoginPage},
     {path: "paint", component: MainPage, canMatch: [authGuard]},
     {path: "register", component: RegisterPage}

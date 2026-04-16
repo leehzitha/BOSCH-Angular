@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Forms } from './forms/forms';
 import { AuthApi } from '../../domain/auth.api';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginDto } from '../../domain/IUser';
+import { LoginDto } from '../../domain/interfaces/IUser';
 import { Header } from '../../shared/header/header';
 
 @Component({

@@ -1,5 +1,6 @@
 import { LoginDto } from "./IUser";
 
+
 export interface IPixel {
     Id? : string,
     X: number,
